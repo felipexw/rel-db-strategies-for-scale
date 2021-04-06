@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  db1:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: db1
+      MYSQL_DATABASE: database1
+    ports:
+      - 3306:3306
+
+  db2:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: db2
+      MYSQL_DATABASE: database2
+    ports:
+      - 3307:3306
+    
+# volumes:
+#   my-db:
+
+# db2:
+#   image: mysql
+#   command: --default-authentication-plugin=mysql_native_password
+#   restart: always
+#   environment:
+#     MYSQL_ROOT_PASSWORD: db2
+#     MYSQL_DATABASE: database2
+#   ports:
+#     - 3307:3307

@@ -1,0 +1,8 @@
+{
+  "name": "database-strategies",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/felipexw/rel-db-strategies-for-scale.git",
+  "author": "Felipe Appio <felipexw@gmail.com>",
+  "license": "MIT"
+}
