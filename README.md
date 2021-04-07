@@ -80,4 +80,7 @@ It consists of spliting the table records in multiple tables in the same databas
 - Database horizontal partitioning vs vertical partitioning
 	- horizontal
 		
+		
+## REFERENCES
+- [sharding](https://github.com/hnasr/javascript_playground/tree/master/sharding)
 
