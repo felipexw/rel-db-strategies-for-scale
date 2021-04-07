@@ -4,5 +4,15 @@
   "main": "index.js",
   "repository": "https://github.com/felipexw/rel-db-strategies-for-scale.git",
   "author": "Felipe Appio <felipexw@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consistent-hash": "^1.0.2",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "hashring": "^3.2.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2"
+  }
 }
