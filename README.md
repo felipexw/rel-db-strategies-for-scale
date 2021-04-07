@@ -79,8 +79,22 @@ It consists of spliting the table records in multiple tables in the same databas
 	
 - Database horizontal partitioning vs vertical partitioning
 	- horizontal
-		
+
+## Applyging the knowledge
+Suppose you have a table containing **1 billion rows**, the queries are definately slow. So, what would you do in order to scale this?
+You have some approaches to solve this:
+
+- {brute force}: You could have a scheduled job or something like that where you could apply some tools in order to process using concurrency and parallelism (sort of map and reduce) and then retrieve the values.
+	- PROS: It's definately faster then searching with only one node
+	- CONS: It might not be that easy to implement, since you would have to deal with tools like Spark (it requires more knowledge).
+- {indexing}: The default approach adopted by most of the people. Probably wouldn't solve the problem itself.
+- {database partitioning}: You can use database partitioning: you would split a number of rows into another tables
+- {database sharding}: The same idea presented above, but with different server nodes.
+	- PROS: combining database partitioning with database sharding and indexing, you will reach the best performance overall.
+	- CONS: it bring some complexity to the client backend (database client). Also, you'd have to cope with distributed transactions problem.
+
 		
 ## REFERENCES
 - [sharding](https://github.com/hnasr/javascript_playground/tree/master/sharding)
+- [1 billiong rows problem](https://www.youtube.com/watch?v=wj7KEMEkMUE)
 
