@@ -22,12 +22,26 @@ Solutions like Vitess do the work when you need to shard your database.
 - Large databses doesn't always have the best performance (lots of indexes, lots of registries to index when you insert another value).
 - When the read/write it' too frequently the performance decreases mostly in relational databases (because of the ACID properties, in other words, transactions).
 
-
 ## What is horizontal database partitioning?
+- separa por coluna a base (com todas as linhas) e coloca em outra tabela
+		- vamos dizer que vc tem um blob que n é buscado com frequência, então vc pode tirar aquele blob e colocar em outra tabela, pois ele está consumindo espaço no tableindex. Coloca em outro tablespace?
+	- As queries são gerenciadas pelo banco e não pelo client (server)
+
+## What is vertical database partitioning?
 It consists of spliting the table records in multiple tables in the same database.
 
 ### How
   - The table indexes have fewer data, because are separeted tables (generally the same prefix name but with another suffix info. For example: `orders_1`).
+
+### Tipo de particionamento
+Em diferentes Sistemas Gerenciadores de Banco de Dados (SGBD), há diferentes tipos de particionamento. O MySQL, por exemplo, suporta alguns:
+	- *By Range*: 
+		- **Features**:
+			- É possível separar por linhas (ex: de 1000 a 3000 vai para a partição 1, e assim por diante)
+			- É possível separar por data, mês, ano, década, etc.
+		- **Quando utilizar**:
+			- Se você realiza buscas frequentes separadas por datas ou algum outro critério de ordenação.
+			- Se você precisa deletar "dados velhos" (ex: colaboradores que trabalharam de 1960 a 1970; se estiver bem distribuído, é bem menos custoso do que aplicar um `delete from employee where year(hired_at) >= 1960 and year(hired_at) <= 1970`).
 
 ## Database sharding vs horizontal partitioning
   - HP splits table into multiple tables int eh same db
@@ -48,10 +62,7 @@ It consists of spliting the table records in multiple tables in the same databas
 		- Joins
 		- Has to be something you know in the query
 
-## What is vertical database partitioning?
-- separa por coluna a base (com todas as linhas) e coloca em outra tabela
-		- vamos dizer que vc tem um blob que n é buscado com frequência, então vc pode tirar aquele blob e colocar em outra tabela, pois ele está consumindo espaço no tableindex. Coloca em outro tablespace
-	- As queries são gerenciadas pelo banco e não pelo client (server)
+
 
 ## Horizontal database partitioning vs Vertical database partitiioning
 - parte no meio a tabela e pega um conjunto x de linhas e joga em outra tabela
@@ -95,6 +106,6 @@ You have some approaches to solve this:
 
 		
 ## REFERENCES
-- [sharding](https://github.com/hnasr/javascript_playground/tree/master/sharding)
-- [1 billiong rows problem](https://www.youtube.com/watch?v=wj7KEMEkMUE)
-
+- [Sharding](https://github.com/hnasr/javascript_playground/tree/master/sharding)
+- [1 Billiong rows problem](https://www.youtube.com/watch?v=wj7KEMEkMUE)
+- [Partitioning by range](https://dev.mysql.com/doc/refman/8.0/en/partitioning-range.html)
