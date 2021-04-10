@@ -93,6 +93,9 @@ Ponto importante: valores nulos também são aceitos.
 - Database horizontal partitioning vs vertical partitioning
 	- horizontal
 
+## Outras coisas que podem serem feitas para otimizar a performance
+Em alguns SGBDs há a opção de habilitar suporte para raquivos grandes (large file objects). Além disso, também é possível habilitar um tablespace por tabela.
+
 ## Applyging the knowledge
 Suppose you have a table containing **1 billion rows**, the queries are definately slow. So, what would you do in order to scale this?
 You have some approaches to solve this:
