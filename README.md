@@ -42,6 +42,7 @@ Em diferentes Sistemas Gerenciadores de Banco de Dados (SGBD), há diferentes ti
 		- **Quando utilizar**:
 			- Se você realiza buscas frequentes separadas por datas ou algum outro critério de ordenação.
 			- Se você precisa deletar "dados velhos" (ex: colaboradores que trabalharam de 1960 a 1970; se estiver bem distribuído, é bem menos custoso do que aplicar um `delete from employee where year(hired_at) >= 1960 and year(hired_at) <= 1970`).
+	- *outros*: lista, coluna, chave, subpartições.
 
 ## Database sharding vs horizontal partitioning
   - HP splits table into multiple tables int eh same db
